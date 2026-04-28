@@ -67,7 +67,13 @@ const initNotes = async () => {
         (ppnotesJsonData.webShow && ppPathName === '/zh/') ||
         ppPathName === '/'
     ) {
+        if (ppnotesJsonData.repeatShow) {
+            console.log('repeatShow note')
+        } else {
+            localStorage.setItem('note', contentValue)
+        }
         contentValue &&
+            localStorage.getItem('note') !== contentValue &&
             createNotes(
                 titleValue,
                 contentValue,
